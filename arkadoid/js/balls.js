@@ -48,10 +48,7 @@ export class Balls extends Base {
 
         // };
 
-        var delta = Date.now() - this.lastTime;
-        let steps = Math.floor(delta / this.frameTime);
-        if (steps <= 0) return;
-
+     
         for (let j = this.balls.length - 1; j >= 0; j--) {
             this.balls[j].update()
 

@@ -13,10 +13,10 @@ export class Ball extends Base {
     };
 
     update() {
-        // if (engine.mousedown) {
+        if (engine.mousedown) {
 
-        //     engine.drawLine(this.position, engine.mouse)
-        // };
+            engine.drawLine(this.position, engine.mouse)
+        };
         if (engine.click && this.y == engine.height - this.radius) {
 
             var mCords = new Vector(engine.mouse.x, engine.mouse.y);
@@ -24,7 +24,7 @@ export class Ball extends Base {
             var angle = this.position.angle(mCords);
 
             this.velocity = new Vector(this.radius * Math.cos(angle), this.radius * Math.sin(angle));
-            
+
         }
 
         this.x += this.velocity.x;
@@ -42,14 +42,14 @@ export class Ball extends Base {
             this.y = this.radius;
             this.velocity.y *= -1;
         }
-        if (this.y >= engine.height) {
-            this.y = engine.height - this.radius;
-            // item.x = balls.balls[0].x
-            this.velocity.x = 0;
-            this.velocity.y = 0;
-            engine.click = false
+        // if (this.y > engine.height) {
+        //     this.y = engine.height - this.radius;
+        //     // item.x = balls.balls[0].x
+        //     this.velocity.x = 0;
+        //     this.velocity.y = 0;
+        //     engine.click = false
 
-        }
+        // }
 
         // if (this.y >= engine.height - this.radius + 0.000000000000000000000000000001) {
         //     this.y = engine.height - this.radius;

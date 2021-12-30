@@ -1,5 +1,6 @@
 import { Base } from "./base.js";
 import { Block } from "./block.js";
+import { Line } from "./line.js";
 import { Vector } from "./vector.js";
 
 
@@ -11,6 +12,7 @@ export class Level {
         this.levelMap = levelData.map;
         this.levelColor = levelData.color
         this.rowIndex = -1;
+        this.floor = new Line(new Vector(0, engine.height), new Vector(engine.width, engine.height))
     };
 
     update() {
@@ -43,7 +45,7 @@ export class Level {
                         return;
                     }
                     default: {
-                        this.blocks.push(new Block(new Vector(elIndex * size.x, 0), size, el, color));
+                        this.blocks.push(new Block(new Vector(elIndex * size.x, 0), size.multiply(5), el, color));
                         break;
                     }
                 }
